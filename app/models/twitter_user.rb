@@ -28,6 +28,14 @@ class TwitterUser < ActiveRecord::Base
     (Time.now - self.tweets.first.created_at.to_time)/60 > 15
   end
 
+  def self.twitter_id(username)
+    self.client.user(username).id
+  end
+
+  def self.followers(username)
+    self.client.followers(username)
+  end
+
 
 
 end

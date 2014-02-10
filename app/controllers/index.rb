@@ -24,4 +24,10 @@ get '/:username' do
 
 end
 
+get '/followers/:username' do
+
+  twitter_id = TwitterUser.twitter_id(params[:username])
+  @followers = TwitterUser.followers(params[:username])
+  erb :followers
+end
 
